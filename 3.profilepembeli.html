@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Profil Lengkap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f5e9;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        header {
+            background: #00712D;
+            color: white;
+            padding: 10px 0;
+            min-height: 50px;
+            border-bottom: #81c784 3px solid;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .profile-info {
+            background: #fff;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-pic-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #00712D;
+            object-fit: cover;
+        }
+
+        .profile-pic-container input[type="file"] {
+            display: none;
+        }
+
+        .edit-photo {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00712D;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .info-group {
+            margin-bottom: 15px;
+        }
+
+        .info-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #2e7d32;
+        }
+
+        .info-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="7.berandapembeli.html" class="back-button"><i class="bi bi-chevron-left"></i></a>
+            <h1>Profil Lengkap</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="profile-info">
+            <div class="profile-pic-container">
+                <img src="/api/placeholder/150/150" alt="Foto Profil" class="profile-pic" id="profile-pic">
+                <label for="upload-photo" class="edit-photo">Ubah Foto</label>
+                <input type="file" id="upload-photo" accept="image/*" onchange="changePhoto()">
+            </div>
+            <div class="info-grid">
+                <div class="info-group">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" value="Nama Lengkap">
+                </div>
+                <div class="info-group">
+                    <label for="jalan">Jalan:</label>
+                    <input type="text" id="jalan" value="Jalan">
+                </div>
+                <div class="info-group">
+                    <label for="rt">RT:</label>
+                    <input type="text" id="rt" value="000">
+                </div>
+                <div class="info-group">
+                    <label for="rw">RW:</label>
+                    <input type="text" id="rw" value="000">
+                </div>
+                <div class="info-group">
+                    <label for="dusun">Dusun:</label>
+                    <input type="text" id="dusun" value="Dusun">
+                </div>
+                <div class="info-group">
+                    <label for="desa">Desa:</label>
+                    <input type="text" id="desa" value="Desa">
+                </div>
+                <div class="info-group">
+                    <label for="kecamatan">Kecamatan:</label>
+                    <input type="text" id="kecamatan" value="Kecamatan">
+                </div>
+                <div class="info-group">
+                    <label for="kota">Kabupaten/Kota:</label>
+                    <input type="text" id="kota" value="Kabupaten/Kota">
+                </div>
+                <div class="info-group">
+                    <label for="provinsi">Provinsi:</label>
+                    <input type="text" id="provinsi" value="Provinsi">
+                </div>
+                <div class="info-group">
+                    <label for="kodepos">Kode Pos:</label>
+                    <input type="text" id="kodepos" value="00000">
+                </div>
+                <div class="info-group">
+                    <label for="nohp">No. HP:</label>
+                    <input type="text" id="nohp" value="08xxxxxxxxxx">
+                </div>
+                <div class="info-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" value="email@example.com">
+                </div>
+            </div>
+        </div>
+        <button onclick="simpanProfil()">Simpan Profil</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ekotani - Mitra Terpercaya Petani Indonesia</p>
+    </footer>
+
+    <script>
+        function simpanProfil() {
+            let fields = ['nama', 'jalan', 'rt', 'rw', 'dusun', 'desa', 'kecamatan', 'kota', 'provinsi', 'kodepos', 'nohp', 'email'];
+            let data = {};
+            fields.forEach(field => {
+                data[field] = document.getElementById(field).value;
+            });
+            console.log('Data yang disimpan:', data);
+            alert('Profil berhasil disimpan!');
+        }
+
+        function changePhoto() {
+            const input = document.getElementById('upload-photo');
+            const profilePic = document.getElementById('profile-pic');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    profilePic.src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>
