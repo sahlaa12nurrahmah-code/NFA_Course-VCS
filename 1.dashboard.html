@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EkoTani</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            filter: brightness(0.9);
+            z-index: -1;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        nav {
+            background-color: rgba(0, 113, 45, 0.9);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+        }
+
+        nav .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            flex: 1;
+        }
+
+        .logo a {
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .menu {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu ul li {
+            margin-left: 20px;
+        }
+
+        .menu ul li a {
+            color: #fff;
+            font-weight: 400;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .menu ul li a:hover {
+            color: #A9DFBF;
+        }
+
+        .auth-buttons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-cta-login {
+            background-color: #00712D;
+            padding: 10px 20px;
+            color: #A9DFBF;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .btn-cta-login:hover {
+            background-color: #fff;
+            color: #00712D;
+            text-decoration: none;
+        }
+
+        .btn-cta {
+            background-color: #A9DFBF;
+            padding: 10px 20px;
+            color: #00712D;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .btn-cta:hover {
+            background-color: #fff;
+            color: #00712D;
+            text-decoration: none;
+        }
+
+        #home {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        .kolom {
+            flex: 1;
+            max-width: 50%;
+            padding-right: 30px;
+        }
+
+        .kolom h2 {
+            font-size: 40px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .kolom .deskripsi {
+            font-size: 18px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .kolom p {
+            font-size: 16px;
+            color: #FFFF99;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 40%;
+            border-radius: 15px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #about {
+            background-color: rgba(232, 245, 233, 0.6); /* Increased transparency */
+            padding: 50px 0;
+        }
+
+        #about h2 {
+            font-size: 32px;
+            color: #00712D;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #about p {
+            font-size: 16px;
+            color: black;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #products {
+            padding: 50px 0;
+        }
+
+        #products h2 {
+            font-size: 32px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .product-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .product-slide {
+            flex: 0 0 auto;
+            width: 250px;
+            margin-right: 20px;
+            scroll-snap-align: start;
+        }
+
+        .product-slide img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-slide h3 {
+            font-size: 18px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px #00712D;
+            margin-top: 30px;
+        }
+
+        .product-slide p {
+            font-size: 14px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px #00712D;
+        }
+
+        .scroll-btn {
+            background-color: #00712D;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #00712D;
+            color: white;
+            text-align: center;
+            padding: 1rem 3%;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav .wrapper {
+                flex-direction: column;
+            }
+
+            .auth-buttons {
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo">
+                <a href="#">EkoTani</a>
+            </div>
+            <div class="menu">
+                <ul>
+
+
+                </ul>
+            </div>
+            <div class="auth-buttons">
+                <a href="2.login.html" class="btn-cta-login">Masuk</a>
+                <a href="2.login.html" class="btn-cta">Daftar</a>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <section id="home">
+            <div class="kolom">
+                <h2>Tanam Harapan, Panen Masa Depan!</h2>
+                <p class="deskripsi"><b>Mari bersama membangun masa depan pertanian Indonesia!</b></p>
+                <p><b>Petani cerdas memilih solusi cerdas. Gabung sekarang di EkoTani dan mulai perjalanan menuju
+                        kesuksesan pertanian Anda.</b></p>
+            </div>
+            <img src="views/sayurrr.png" alt="Sayur">
+        </section>
+    </div>
+    <section id="about">
+        <div class="wrapper">
+            <h2>Tentang EkoTani</h2>
+            <p>EkoTani adalah platform inovatif yang menghubungkan petani dengan teknologi modern dan pasar yang lebih
+                luas. Kami berkomitmen untuk mendukung pertanian berkelanjutan, meningkatkan produktivitas, dan
+                memberdayakan komunitas petani di seluruh Indonesia. Dengan EkoTani, petani dapat mengakses informasi
+                terkini, alat pertanian modern, dan jaringan distribusi yang efisien untuk hasil panen mereka.</p>
+        </div>
+    </section>
+    <section id="products">
+        <div class="wrapper">
+            <h2>Produk Unggulan</h2>
+            <div class="product-slider">
+                <div class="product-slide">
+                    <img src="views/brokoli.jpg" alt="Produk 1">
+                    <h3>Brokoli</h3>
+                    <p>Sayur Organik</p>
+                </div>
+                <div class="product-slide">
+                    <img src="views/tomat.jpg" alt="tomat">
+                    <h3>Tomat</h3>
+                    <p>Sayur Organik</p>
+                </div>
+                <div class="product-slide">
+                    <a
+                        href="https://www.freepik.com/free-photo/stack-carrots-bowl-marble_15296744.htm#fromView=search&page=1&position=5&uuid=7f2f1fe1-828d-4073-9b5d-9eb770d6eb96">
+                        <img src="views/wortel.jpg" alt="wortel">
+                    </a>
+                    <h3>Wortel</h3>
+                    <p>Sayuran</p>
+                </div>
+                <div class="product-slide">
+                    <img src="views/timun.jpg" alt="Produk 4">
+                    <h3>Timun</h3>
+                    <p>Sayuran</p>
+                </div>
+                <div class="product-slide">
+                    <img src="views/jagung.jpg" alt="Produk 5">
+                    <h3>Jagung</h3>
+                    <p>Sayuran</p>
+                </div>
+                <div class="product-slide">
+                    <img src="views/sawip.jpg" alt="Produk 5">
+                    <h3>Sawi Putih</h3>
+                    <p>Sayuran</p>
+                </div>
+                <div class="product-slide">
+                    <img src="views/selada.jpg" alt="Produk 5">
+                    <h3>Selada</h3>
+                    <p>Sayuran</p>
+                </div>
+                <div class="product-slide">
+                    <img src="views/kangkung.jpeg" alt="Produk 5">
+                    <h3>Kangkung</h3>
+                    <p>Kangkung Organik</p>
+                </div>
+                <div class="product-slide">
+                    <img src="views/buncis.jpg" alt="Produk 5">
+                    <h3>Buncis</h3>
+                    <p>Sayuran</p>
+                </div>
+                <div class="product-slide">
+                    <img src="views/pokcoy.jpg" alt="Produk 5">
+                    <h3>Pokcoy</h3>
+                    <p>Sayuran</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollProducts(direction) {
+            const container = document.querySelector('.product-slider');
+            const scrollAmount = 270;
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+    <footer>
+        <p>&copy; 2024 Ekotani - Mitra Terpercaya Petani Indonesia</p>
+    </footer>
+</body>
+
+</html>
