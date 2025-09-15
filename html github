@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>Perkenalan Singkat</title>
+</head>
+<body>
+  <h1>Halo, saya Sahlaa</h1>
+  <p>Saya adalah mahasiswa Sistem Informasi yang sedang belajar pengembangan web dan sistem pendukung keputusan.</p>
+  <h2>Sedikit tentang saya:</h2>
+  <ul>
+    <li>Sedang menempuh kelas MBKM Mandiri di NF Academy.</li>
+    <li>Telah menyelesaikan course Web Design dan UIUX di NF Academy.</li>
+    <li>Sedang memperdalam pengetahuan tentang Github bersama NF Academy</li>
+  </ul>
+  <p>Terima kasih sudah berkunjung ke halaman perkenalan saya!</p>
+</body>
+</html>
